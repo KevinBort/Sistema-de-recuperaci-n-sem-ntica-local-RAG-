@@ -1,0 +1,8 @@
+langchain-core
+langchain-ollama
+langchain-chroma
+chromadb
+langchain-text-splitters
+tiktoken
+pydantic
+python-dotenv
