@@ -6,3 +6,4 @@ langchain-text-splitters
 tiktoken
 pydantic
 python-dotenv
+ollama
