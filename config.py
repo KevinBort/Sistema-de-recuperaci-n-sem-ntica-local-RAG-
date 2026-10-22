@@ -21,6 +21,17 @@ LLM_MODEL = os.getenv("LLM_MODEL")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 
+# Recuperación: cuántos fragmentos se le pasan al modelo (la consigna pide entre 3 y 5)
+TOP_K = 4
+K_MAXIMO = 10  # tope de seguridad: demasiados fragmentos degradan la respuesta
+
+# Generación (modelo de lenguaje)
+TEMPERATURA = 0.1          # baja: queremos respuestas fieles al contexto, no creativas
+NUM_CTX = 8192             # ventana de contexto que se le pide a Ollama (su valor por defecto puede ser menor)
+MAX_TOKENS_RESPUESTA = 400  # tope de la respuesta: red de seguridad contra generación sin fin
+TIMEOUT_LLM_S = 300        # segundos máximos esperando al modelo (en CPU puede tardar bastante)
+REINTENTOS = 3             # intentos si el modelo no devuelve una respuesta con el formato pedido
+
 # Chunking: tamaño máximo y solapamiento, medidos en TOKENS (no en caracteres)
 CHUNK_TOKENS = 500
 CHUNK_OVERLAP = 50
